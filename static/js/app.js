@@ -1,33 +1,37 @@
 document.addEventListener("DOMContentLoaded", function() {
-    // Image preview functionality
-    const fileInput = document.getElementById('dental-image-input');
-    const previewContainer = document.getElementById('image-preview-container');
-    const previewImage = document.getElementById('image-preview');
-    const uploadBtn = document.getElementById('upload-btn');
-    const analyzeBtn = document.getElementById('analyze-btn');
+    // Symptom form handling - ensure "None" checkboxes work correctly
+    const noneCheckboxes = {
+        'sensitivity-none': 'sensitivity[]',
+        'symptom-none': 'additional_symptoms[]'
+    };
     
-    if (fileInput) {
-        fileInput.addEventListener('change', function() {
-            if (fileInput.files && fileInput.files[0]) {
-                const reader = new FileReader();
-                
-                reader.onload = function(e) {
-                    previewImage.src = e.target.result;
-                    previewContainer.classList.remove('d-none');
-                    if (analyzeBtn) {
-                        analyzeBtn.disabled = false;
+    // Handle "None" checkbox exclusive selection
+    Object.keys(noneCheckboxes).forEach(checkboxId => {
+        const noneCheckbox = document.getElementById(checkboxId);
+        if (noneCheckbox) {
+            const checkboxName = noneCheckboxes[checkboxId];
+            
+            // When "None" is checked, uncheck all others in the group
+            noneCheckbox.addEventListener('change', function() {
+                if (this.checked) {
+                    const otherCheckboxes = document.querySelectorAll(`input[name="${checkboxName}"]:not(#${checkboxId})`);
+                    otherCheckboxes.forEach(cb => {
+                        cb.checked = false;
+                    });
+                }
+            });
+            
+            // When any other checkbox in the group is checked, uncheck "None"
+            const groupCheckboxes = document.querySelectorAll(`input[name="${checkboxName}"]:not(#${checkboxId})`);
+            groupCheckboxes.forEach(cb => {
+                cb.addEventListener('change', function() {
+                    if (this.checked) {
+                        noneCheckbox.checked = false;
                     }
-                }
-                
-                reader.readAsDataURL(fileInput.files[0]);
-            } else {
-                previewContainer.classList.add('d-none');
-                if (analyzeBtn) {
-                    analyzeBtn.disabled = true;
-                }
-            }
-        });
-    }
+                });
+            });
+        }
+    });
     
     // Loading indicator for form submission
     const analysisForm = document.getElementById('analysis-form');

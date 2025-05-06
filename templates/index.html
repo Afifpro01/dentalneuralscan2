@@ -57,8 +57,8 @@ Dental Cavity Detection
     </div>
 </section>
 
-<!-- Upload Section -->
-<section id="upload-section" class="py-5">
+<!-- Symptom Form Section -->
+<section id="symptoms-section" class="py-5">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
@@ -66,37 +66,304 @@ Dental Cavity Detection
                     <div class="card-body p-4">
                         <h2 class="text-center mb-4">
                             {% if session.get('language') == 'id' %}
-                            Unggah Foto Gigi Anda
+                            Ceritakan Gejala Gigi Anda
                             {% else %}
-                            Upload Your Dental Photo
+                            Describe Your Dental Symptoms
                             {% endif %}
                         </h2>
                         <div class="text-center mb-4">
-                            <img src="{{ url_for('static', filename='assets/upload_image.svg') }}" alt="Upload" class="upload-icon">
+                            <img src="{{ url_for('static', filename='assets/dental_conditions.svg') }}" alt="Symptoms" class="upload-icon">
                         </div>
-                        <form id="analysis-form" action="{{ url_for('analyze') }}" method="post" enctype="multipart/form-data">
-                            <div class="mb-4 text-center">
-                                <input type="file" id="dental-image-input" name="dental_image" class="form-control" accept="image/*" required>
-                                <small class="text-muted">
+                        <form id="analysis-form" action="{{ url_for('analyze') }}" method="post">
+                            <div class="mb-4">
+                                <!-- Pain Level -->
+                                <label class="form-label">
                                     {% if session.get('language') == 'id' %}
-                                    Format yang didukung: JPG, JPEG, PNG
+                                    Tingkat Nyeri
                                     {% else %}
-                                    Supported formats: JPG, JPEG, PNG
+                                    Pain Level
                                     {% endif %}
-                                </small>
-                            </div>
-                            
-                            <div id="image-preview-container" class="d-none mb-4">
-                                <img id="image-preview" src="#" alt="Preview" class="image-preview">
+                                </label>
+                                <div class="mb-3">
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="pain_level" id="pain-none" value="0" required>
+                                        <label class="form-check-label" for="pain-none">
+                                            {% if session.get('language') == 'id' %}
+                                            Tidak Ada
+                                            {% else %}
+                                            None
+                                            {% endif %}
+                                        </label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="pain_level" id="pain-mild" value="1">
+                                        <label class="form-check-label" for="pain-mild">
+                                            {% if session.get('language') == 'id' %}
+                                            Ringan
+                                            {% else %}
+                                            Mild
+                                            {% endif %}
+                                        </label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="pain_level" id="pain-moderate" value="2">
+                                        <label class="form-check-label" for="pain-moderate">
+                                            {% if session.get('language') == 'id' %}
+                                            Sedang
+                                            {% else %}
+                                            Moderate
+                                            {% endif %}
+                                        </label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="pain_level" id="pain-severe" value="3">
+                                        <label class="form-check-label" for="pain-severe">
+                                            {% if session.get('language') == 'id' %}
+                                            Parah
+                                            {% else %}
+                                            Severe
+                                            {% endif %}
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <!-- Discoloration -->
+                                <label class="form-label">
+                                    {% if session.get('language') == 'id' %}
+                                    Perubahan Warna
+                                    {% else %}
+                                    Discoloration
+                                    {% endif %}
+                                </label>
+                                <div class="mb-3">
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="discoloration" id="discoloration-none" value="0" required>
+                                        <label class="form-check-label" for="discoloration-none">
+                                            {% if session.get('language') == 'id' %}
+                                            Tidak Ada
+                                            {% else %}
+                                            None
+                                            {% endif %}
+                                        </label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="discoloration" id="discoloration-white" value="1">
+                                        <label class="form-check-label" for="discoloration-white">
+                                            {% if session.get('language') == 'id' %}
+                                            Bercak Putih
+                                            {% else %}
+                                            White Spots
+                                            {% endif %}
+                                        </label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="discoloration" id="discoloration-yellow" value="2">
+                                        <label class="form-check-label" for="discoloration-yellow">
+                                            {% if session.get('language') == 'id' %}
+                                            Kekuningan
+                                            {% else %}
+                                            Yellowish
+                                            {% endif %}
+                                        </label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="discoloration" id="discoloration-dark" value="3">
+                                        <label class="form-check-label" for="discoloration-dark">
+                                            {% if session.get('language') == 'id' %}
+                                            Coklat/Hitam
+                                            {% else %}
+                                            Brown/Black
+                                            {% endif %}
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <!-- Sensitivity -->
+                                <label class="form-label">
+                                    {% if session.get('language') == 'id' %}
+                                    Sensitivitas Terhadap
+                                    {% else %}
+                                    Sensitivity To
+                                    {% endif %}
+                                </label>
+                                <div class="mb-3">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" name="sensitivity[]" id="sensitivity-none" value="none">
+                                        <label class="form-check-label" for="sensitivity-none">
+                                            {% if session.get('language') == 'id' %}
+                                            Tidak Ada
+                                            {% else %}
+                                            None
+                                            {% endif %}
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" name="sensitivity[]" id="sensitivity-hot" value="hot">
+                                        <label class="form-check-label" for="sensitivity-hot">
+                                            {% if session.get('language') == 'id' %}
+                                            Makanan/Minuman Panas
+                                            {% else %}
+                                            Hot Food/Drinks
+                                            {% endif %}
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" name="sensitivity[]" id="sensitivity-cold" value="cold">
+                                        <label class="form-check-label" for="sensitivity-cold">
+                                            {% if session.get('language') == 'id' %}
+                                            Makanan/Minuman Dingin
+                                            {% else %}
+                                            Cold Food/Drinks
+                                            {% endif %}
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" name="sensitivity[]" id="sensitivity-sweet" value="sweet">
+                                        <label class="form-check-label" for="sensitivity-sweet">
+                                            {% if session.get('language') == 'id' %}
+                                            Makanan/Minuman Manis
+                                            {% else %}
+                                            Sweet Food/Drinks
+                                            {% endif %}
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" name="sensitivity[]" id="sensitivity-pressure" value="pressure">
+                                        <label class="form-check-label" for="sensitivity-pressure">
+                                            {% if session.get('language') == 'id' %}
+                                            Tekanan Saat Menggigit
+                                            {% else %}
+                                            Pressure When Biting
+                                            {% endif %}
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <!-- Additional Symptoms -->
+                                <label class="form-label">
+                                    {% if session.get('language') == 'id' %}
+                                    Gejala Tambahan
+                                    {% else %}
+                                    Additional Symptoms
+                                    {% endif %}
+                                </label>
+                                <div class="mb-3">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" name="additional_symptoms[]" id="symptom-none" value="none">
+                                        <label class="form-check-label" for="symptom-none">
+                                            {% if session.get('language') == 'id' %}
+                                            Tidak Ada
+                                            {% else %}
+                                            None
+                                            {% endif %}
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" name="additional_symptoms[]" id="symptom-swelling" value="swelling">
+                                        <label class="form-check-label" for="symptom-swelling">
+                                            {% if session.get('language') == 'id' %}
+                                            Pembengkakan Gusi
+                                            {% else %}
+                                            Gum Swelling
+                                            {% endif %}
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" name="additional_symptoms[]" id="symptom-bad-taste" value="bad-taste">
+                                        <label class="form-check-label" for="symptom-bad-taste">
+                                            {% if session.get('language') == 'id' %}
+                                            Rasa Tidak Enak di Mulut
+                                            {% else %}
+                                            Bad Taste in Mouth
+                                            {% endif %}
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" name="additional_symptoms[]" id="symptom-visible-hole" value="visible-hole">
+                                        <label class="form-check-label" for="symptom-visible-hole">
+                                            {% if session.get('language') == 'id' %}
+                                            Lubang Terlihat pada Gigi
+                                            {% else %}
+                                            Visible Hole in Tooth
+                                            {% endif %}
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" name="additional_symptoms[]" id="symptom-bleeding" value="bleeding">
+                                        <label class="form-check-label" for="symptom-bleeding">
+                                            {% if session.get('language') == 'id' %}
+                                            Pendarahan Gusi
+                                            {% else %}
+                                            Bleeding Gums
+                                            {% endif %}
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" name="additional_symptoms[]" id="symptom-fever" value="fever">
+                                        <label class="form-check-label" for="symptom-fever">
+                                            {% if session.get('language') == 'id' %}
+                                            Demam
+                                            {% else %}
+                                            Fever
+                                            {% endif %}
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <!-- Duration -->
+                                <label class="form-label">
+                                    {% if session.get('language') == 'id' %}
+                                    Durasi Gejala
+                                    {% else %}
+                                    Duration of Symptoms
+                                    {% endif %}
+                                </label>
+                                <select class="form-select mb-4" name="duration" required>
+                                    <option value="" selected disabled>
+                                        {% if session.get('language') == 'id' %}
+                                        -- Pilih Durasi --
+                                        {% else %}
+                                        -- Select Duration --
+                                        {% endif %}
+                                    </option>
+                                    <option value="recent">
+                                        {% if session.get('language') == 'id' %}
+                                        Baru Saja (1-2 hari)
+                                        {% else %}
+                                        Recent (1-2 days)
+                                        {% endif %}
+                                    </option>
+                                    <option value="short">
+                                        {% if session.get('language') == 'id' %}
+                                        Minggu Ini (2-7 hari)
+                                        {% else %}
+                                        This Week (2-7 days)
+                                        {% endif %}
+                                    </option>
+                                    <option value="medium">
+                                        {% if session.get('language') == 'id' %}
+                                        Beberapa Minggu (1-4 minggu)
+                                        {% else %}
+                                        Few Weeks (1-4 weeks)
+                                        {% endif %}
+                                    </option>
+                                    <option value="long">
+                                        {% if session.get('language') == 'id' %}
+                                        Lama (Lebih dari 1 bulan)
+                                        {% else %}
+                                        Long (More than 1 month)
+                                        {% endif %}
+                                    </option>
+                                </select>
                             </div>
                             
                             <div class="text-center">
-                                <button id="analyze-btn" type="submit" class="btn btn-primary btn-lg" disabled>
+                                <button id="analyze-btn" type="submit" class="btn btn-primary btn-lg">
                                     <i class="fas fa-microscope me-2"></i>
                                     {% if session.get('language') == 'id' %}
-                                    Analisis Sekarang
+                                    Analisis Gejala
                                     {% else %}
-                                    Analyze Now
+                                    Analyze Symptoms
                                     {% endif %}
                                 </button>
                             </div>

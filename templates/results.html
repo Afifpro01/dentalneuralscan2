@@ -25,32 +25,18 @@ Analysis Results
                     </div>
                     <div class="card-body p-4">
                         <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-md-12">
                                 <div class="mb-4">
-                                    <h5>
-                                        {% if session.get('language') == 'id' %}
-                                        Gambar Dianalisis
-                                        {% else %}
-                                        Analyzed Image
-                                        {% endif %}
-                                    </h5>
-                                    <div class="image-preview-container">
-                                        <img src="{{ url_for('static', filename=image_path) }}" alt="Dental Image" class="image-preview">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="mb-4">
-                                    <h5>
-                                        {% if session.get('language') == 'id' %}
-                                        Kondisi Terdeteksi
-                                        {% else %}
-                                        Detected Condition
-                                        {% endif %}
-                                    </h5>
                                     <div class="p-3 bg-light rounded">
-                                        <h4 class="text-primary">{{ prediction.name }}</h4>
-                                        <div class="mt-3">
+                                        <h4 class="text-center">
+                                            {% if session.get('language') == 'id' %}
+                                            Kondisi Terdeteksi
+                                            {% else %}
+                                            Detected Condition
+                                            {% endif %}
+                                        </h4>
+                                        <h3 class="text-primary text-center mt-3">{{ prediction.name }}</h3>
+                                        <div class="mt-4">
                                             <h6>
                                                 {% if session.get('language') == 'id' %}
                                                 Tingkat Kepercayaan
