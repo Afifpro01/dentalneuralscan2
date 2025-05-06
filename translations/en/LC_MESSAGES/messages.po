@@ -1,0 +1,277 @@
+# English translations for DentalScan AI.
+# Copyright (C) 2023 DentalScan AI
+# This file is distributed under the same license as the DentalScan AI project.
+msgid ""
+msgstr ""
+"Project-Id-Version: 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-10-01 10:00+0000\n"
+"PO-Revision-Date: 2023-10-01 10:00+0000\n"
+"Last-Translator: DentalScan AI Team\n"
+"Language-Team: English\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+# Navigation
+msgid "Home"
+msgstr "Home"
+
+msgid "Education"
+msgstr "Education"
+
+msgid "About"
+msgstr "About"
+
+# Home page
+msgid "Dental Cavity Detection"
+msgstr "Dental Cavity Detection"
+
+msgid "Early Dental Cavity Detection with AI"
+msgstr "Early Dental Cavity Detection with AI"
+
+msgid "Simply upload a photo of your teeth, and our AI will instantly analyze potential cavity issues."
+msgstr "Simply upload a photo of your teeth, and our AI will instantly analyze potential cavity issues."
+
+msgid "Get preliminary analysis before visiting a dentist for professional consultation."
+msgstr "Get preliminary analysis before visiting a dentist for professional consultation."
+
+msgid "Start Analysis"
+msgstr "Start Analysis"
+
+msgid "Learn More"
+msgstr "Learn More"
+
+msgid "Upload Your Dental Photo"
+msgstr "Upload Your Dental Photo"
+
+msgid "Supported formats: JPG, JPEG, PNG"
+msgstr "Supported formats: JPG, JPEG, PNG"
+
+msgid "Analyze Now"
+msgstr "Analyze Now"
+
+msgid "Key Features"
+msgstr "Key Features"
+
+msgid "Advanced AI Analysis"
+msgstr "Advanced AI Analysis"
+
+msgid "Our deep learning algorithms can identify cavity issues with high accuracy."
+msgstr "Our deep learning algorithms can identify cavity issues with high accuracy."
+
+msgid "Instant Results"
+msgstr "Instant Results"
+
+msgid "Get analysis results in seconds, without waiting for an appointment."
+msgstr "Get analysis results in seconds, without waiting for an appointment."
+
+msgid "Educational Recommendations"
+msgstr "Educational Recommendations"
+
+msgid "Receive educational advice and solutions based on your analysis results."
+msgstr "Receive educational advice and solutions based on your analysis results."
+
+msgid "How It Works"
+msgstr "How It Works"
+
+msgid "1. Upload Photo"
+msgstr "1. Upload Photo"
+
+msgid "Take a clear photo of your teeth and upload it to our platform."
+msgstr "Take a clear photo of your teeth and upload it to our platform."
+
+msgid "2. AI Analysis"
+msgstr "2. AI Analysis"
+
+msgid "Our AI model performs a deep analysis on the image to detect issues."
+msgstr "Our AI model performs a deep analysis on the image to detect issues."
+
+msgid "3. Get Results"
+msgstr "3. Get Results"
+
+msgid "View analysis results with symptoms and recommended solutions."
+msgstr "View analysis results with symptoms and recommended solutions."
+
+msgid "Disclaimer"
+msgstr "Disclaimer"
+
+msgid "This application is intended to provide preliminary analysis and is not a substitute for professional diagnosis. Always consult with a dentist for proper treatment."
+msgstr "This application is intended to provide preliminary analysis and is not a substitute for professional diagnosis. Always consult with a dentist for proper treatment."
+
+# Results page
+msgid "Analysis Results"
+msgstr "Analysis Results"
+
+msgid "Dental Cavity Analysis Results"
+msgstr "Dental Cavity Analysis Results"
+
+msgid "Analyzed Image"
+msgstr "Analyzed Image"
+
+msgid "Detected Condition"
+msgstr "Detected Condition"
+
+msgid "Confidence Level"
+msgstr "Confidence Level"
+
+msgid "Symptoms"
+msgstr "Symptoms"
+
+msgid "Recommended Solutions"
+msgstr "Recommended Solutions"
+
+msgid "Important:"
+msgstr "Important:"
+
+msgid "These results are only a preliminary analysis. Please consult with a dentist for professional diagnosis and treatment plan."
+msgstr "These results are only a preliminary analysis. Please consult with a dentist for professional diagnosis and treatment plan."
+
+msgid "Analyze Again"
+msgstr "Analyze Again"
+
+msgid "Learn About Dental Conditions"
+msgstr "Learn About Dental Conditions"
+
+# Education page
+msgid "Dental Health Education"
+msgstr "Dental Health Education"
+
+msgid "Understanding Dental Cavities and Prevention"
+msgstr "Understanding Dental Cavities and Prevention"
+
+msgid "Dental caries (cavities) are tooth damage caused by acids produced by plaque bacteria. Recognizing early symptoms and seeking timely treatment can prevent serious complications."
+msgstr "Dental caries (cavities) are tooth damage caused by acids produced by plaque bacteria. Recognizing early symptoms and seeking timely treatment can prevent serious complications."
+
+msgid "Common Dental Cavity Conditions"
+msgstr "Common Dental Cavity Conditions"
+
+msgid "Mild"
+msgstr "Mild"
+
+msgid "Moderate"
+msgstr "Moderate"
+
+msgid "Significant"
+msgstr "Significant"
+
+msgid "Severe"
+msgstr "Severe"
+
+msgid "Critical"
+msgstr "Critical"
+
+msgid "Symptoms:"
+msgstr "Symptoms:"
+
+msgid "Solutions:"
+msgstr "Solutions:"
+
+msgid "Daily Dental Care Tips"
+msgstr "Daily Dental Care Tips"
+
+msgid "Brush Properly"
+msgstr "Brush Properly"
+
+msgid "Brush your teeth twice daily for two minutes using fluoride toothpaste. Use a soft-bristled brush and a gentle circular technique."
+msgstr "Brush your teeth twice daily for two minutes using fluoride toothpaste. Use a soft-bristled brush and a gentle circular technique."
+
+msgid "Floss Daily"
+msgstr "Floss Daily"
+
+msgid "Clean between your teeth daily with dental floss to remove plaque and food debris that your toothbrush can't reach."
+msgstr "Clean between your teeth daily with dental floss to remove plaque and food debris that your toothbrush can't reach."
+
+msgid "Watch Your Diet"
+msgstr "Watch Your Diet"
+
+msgid "Limit sugary foods and drinks. Avoid snacking between meals and drink plenty of water."
+msgstr "Limit sugary foods and drinks. Avoid snacking between meals and drink plenty of water."
+
+msgid "Regular Check-ups"
+msgstr "Regular Check-ups"
+
+msgid "Visit your dentist every six months for check-ups and professional cleaning."
+msgstr "Visit your dentist every six months for check-ups and professional cleaning."
+
+# About page
+msgid "About Us"
+msgstr "About Us"
+
+msgid "About DentalScan AI"
+msgstr "About DentalScan AI"
+
+msgid "Our Mission"
+msgstr "Our Mission"
+
+msgid "DentalScan AI aims to improve global dental health by making early detection technology for dental issues accessible to everyone."
+msgstr "DentalScan AI aims to improve global dental health by making early detection technology for dental issues accessible to everyone."
+
+msgid "We believe that with artificial intelligence technology, we can help detect dental issues earlier, encourage faster treatment, and prevent serious complications."
+msgstr "We believe that with artificial intelligence technology, we can help detect dental issues earlier, encourage faster treatment, and prevent serious complications."
+
+msgid "Our Technology"
+msgstr "Our Technology"
+
+msgid "Advanced Neural Network Algorithms"
+msgstr "Advanced Neural Network Algorithms"
+
+msgid "DentalScan AI uses state-of-the-art deep learning technology to analyze dental images. Our algorithms are trained on thousands of dental cavity images to enable accurate detection of various conditions."
+msgstr "DentalScan AI uses state-of-the-art deep learning technology to analyze dental images. Our algorithms are trained on thousands of dental cavity images to enable accurate detection of various conditions."
+
+msgid "Analysis Process"
+msgstr "Analysis Process"
+
+msgid "Our system processes images in several steps:"
+msgstr "Our system processes images in several steps:"
+
+msgid "Image pre-processing for standardization and quality enhancement"
+msgstr "Image pre-processing for standardization and quality enhancement"
+
+msgid "Segmentation of dental areas for focused analysis"
+msgstr "Segmentation of dental areas for focused analysis"
+
+msgid "Feature extraction using convolutional neural networks (CNN)"
+msgstr "Feature extraction using convolutional neural networks (CNN)"
+
+msgid "Condition classification and confidence level calculation"
+msgstr "Condition classification and confidence level calculation"
+
+msgid "Limitations"
+msgstr "Limitations"
+
+msgid "While DentalScan AI uses advanced AI technology, it's important to understand that:"
+msgstr "While DentalScan AI uses advanced AI technology, it's important to understand that:"
+
+msgid "Our analysis is an early screening tool, not a definitive medical diagnosis."
+msgstr "Our analysis is an early screening tool, not a definitive medical diagnosis."
+
+msgid "The quality of uploaded images greatly affects the accuracy of results."
+msgstr "The quality of uploaded images greatly affects the accuracy of results."
+
+msgid "Certain conditions may be missed or misidentified."
+msgstr "Certain conditions may be missed or misidentified."
+
+msgid "Always consult with a dentist for professional diagnosis and treatment."
+msgstr "Always consult with a dentist for professional diagnosis and treatment."
+
+msgid "Try Analysis Now"
+msgstr "Try Analysis Now"
+
+# Footer
+msgid "DentalScan AI"
+msgstr "DentalScan AI"
+
+msgid "AI-powered early dental cavity detection"
+msgstr "AI-powered early dental cavity detection"
+
+msgid "© 2023 DentalScan AI. All Rights Reserved."
+msgstr "© 2023 DentalScan AI. All Rights Reserved."
+
+msgid "Please note: This tool is for informational purposes only, not a replacement for professional consultation with a dentist."
+msgstr "Please note: This tool is for informational purposes only, not a replacement for professional consultation with a dentist."
+
+msgid "Analyzing image..."
+msgstr "Analyzing image..."

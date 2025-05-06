@@ -1,0 +1,294 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+{% if session.get('language') == 'id' %}
+Deteksi Karies Gigi
+{% else %}
+Dental Cavity Detection
+{% endif %}
+{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero-section">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 text-white">
+                <h1 class="display-4 fw-bold mb-4">
+                    {% if session.get('language') == 'id' %}
+                    Deteksi Awal Karies Gigi dengan AI
+                    {% else %}
+                    Early Dental Cavity Detection with AI
+                    {% endif %}
+                </h1>
+                <p class="lead mb-4">
+                    {% if session.get('language') == 'id' %}
+                    Cukup unggah foto gigi Anda, dan AI kami akan menganalisis potensi masalah gigi berlubang secara instan.
+                    {% else %}
+                    Simply upload a photo of your teeth, and our AI will instantly analyze potential cavity issues.
+                    {% endif %}
+                </p>
+                <p class="mb-5">
+                    {% if session.get('language') == 'id' %}
+                    Dapatkan hasil analisis sementara sebelum mengunjungi dokter gigi untuk konsultasi profesional.
+                    {% else %}
+                    Get preliminary analysis before visiting a dentist for professional consultation.
+                    {% endif %}
+                </p>
+                <a href="#upload-section" class="btn btn-light btn-lg me-3">
+                    {% if session.get('language') == 'id' %}
+                    Mulai Analisis
+                    {% else %}
+                    Start Analysis
+                    {% endif %}
+                </a>
+                <a href="{{ url_for('education') }}" class="btn btn-outline-light btn-lg">
+                    {% if session.get('language') == 'id' %}
+                    Pelajari Lebih Lanjut
+                    {% else %}
+                    Learn More
+                    {% endif %}
+                </a>
+            </div>
+            <div class="col-lg-6 d-flex justify-content-center mt-5 mt-lg-0">
+                <img src="{{ url_for('static', filename='assets/dental_conditions.svg') }}" alt="Dental Analysis" class="img-fluid" style="max-height: 350px;">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Upload Section -->
+<section id="upload-section" class="py-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card border-0 shadow-lg">
+                    <div class="card-body p-4">
+                        <h2 class="text-center mb-4">
+                            {% if session.get('language') == 'id' %}
+                            Unggah Foto Gigi Anda
+                            {% else %}
+                            Upload Your Dental Photo
+                            {% endif %}
+                        </h2>
+                        <div class="text-center mb-4">
+                            <img src="{{ url_for('static', filename='assets/upload_image.svg') }}" alt="Upload" class="upload-icon">
+                        </div>
+                        <form id="analysis-form" action="{{ url_for('analyze') }}" method="post" enctype="multipart/form-data">
+                            <div class="mb-4 text-center">
+                                <input type="file" id="dental-image-input" name="dental_image" class="form-control" accept="image/*" required>
+                                <small class="text-muted">
+                                    {% if session.get('language') == 'id' %}
+                                    Format yang didukung: JPG, JPEG, PNG
+                                    {% else %}
+                                    Supported formats: JPG, JPEG, PNG
+                                    {% endif %}
+                                </small>
+                            </div>
+                            
+                            <div id="image-preview-container" class="d-none mb-4">
+                                <img id="image-preview" src="#" alt="Preview" class="image-preview">
+                            </div>
+                            
+                            <div class="text-center">
+                                <button id="analyze-btn" type="submit" class="btn btn-primary btn-lg" disabled>
+                                    <i class="fas fa-microscope me-2"></i>
+                                    {% if session.get('language') == 'id' %}
+                                    Analisis Sekarang
+                                    {% else %}
+                                    Analyze Now
+                                    {% endif %}
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Features Section -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <h2 class="text-center mb-5">
+            {% if session.get('language') == 'id' %}
+            Fitur Utama
+            {% else %}
+            Key Features
+            {% endif %}
+        </h2>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body text-center p-4">
+                        <i class="fas fa-brain fa-3x text-primary mb-3"></i>
+                        <h5 class="card-title">
+                            {% if session.get('language') == 'id' %}
+                            Analisis AI Terdepan
+                            {% else %}
+                            Advanced AI Analysis
+                            {% endif %}
+                        </h5>
+                        <p class="card-text">
+                            {% if session.get('language') == 'id' %}
+                            Algoritma pembelajaran mendalam kami dapat mengidentifikasi masalah gigi berlubang dengan akurasi tinggi.
+                            {% else %}
+                            Our deep learning algorithms can identify cavity issues with high accuracy.
+                            {% endif %}
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body text-center p-4">
+                        <i class="fas fa-bolt fa-3x text-primary mb-3"></i>
+                        <h5 class="card-title">
+                            {% if session.get('language') == 'id' %}
+                            Hasil Instan
+                            {% else %}
+                            Instant Results
+                            {% endif %}
+                        </h5>
+                        <p class="card-text">
+                            {% if session.get('language') == 'id' %}
+                            Dapatkan hasil analisis dalam hitungan detik, tanpa menunggu janji temu.
+                            {% else %}
+                            Get analysis results in seconds, without waiting for an appointment.
+                            {% endif %}
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body text-center p-4">
+                        <i class="fas fa-book-medical fa-3x text-primary mb-3"></i>
+                        <h5 class="card-title">
+                            {% if session.get('language') == 'id' %}
+                            Rekomendasi Edukasi
+                            {% else %}
+                            Educational Recommendations
+                            {% endif %}
+                        </h5>
+                        <p class="card-text">
+                            {% if session.get('language') == 'id' %}
+                            Dapatkan saran dan solusi pendidikan berdasarkan hasil analisis Anda.
+                            {% else %}
+                            Receive educational advice and solutions based on your analysis results.
+                            {% endif %}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- How It Works -->
+<section class="py-5">
+    <div class="container">
+        <h2 class="text-center mb-5">
+            {% if session.get('language') == 'id' %}
+            Cara Kerjanya
+            {% else %}
+            How It Works
+            {% endif %}
+        </h2>
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <div class="row g-4">
+                    <div class="col-md-4">
+                        <div class="text-center">
+                            <div class="bg-primary rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
+                                <i class="fas fa-upload text-white fa-2x"></i>
+                            </div>
+                            <h5>
+                                {% if session.get('language') == 'id' %}
+                                1. Unggah Foto
+                                {% else %}
+                                1. Upload Photo
+                                {% endif %}
+                            </h5>
+                            <p>
+                                {% if session.get('language') == 'id' %}
+                                Ambil foto gigi Anda dengan jelas dan unggah ke platform kami.
+                                {% else %}
+                                Take a clear photo of your teeth and upload it to our platform.
+                                {% endif %}
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="text-center">
+                            <div class="bg-primary rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
+                                <i class="fas fa-cogs text-white fa-2x"></i>
+                            </div>
+                            <h5>
+                                {% if session.get('language') == 'id' %}
+                                2. Analisis AI
+                                {% else %}
+                                2. AI Analysis
+                                {% endif %}
+                            </h5>
+                            <p>
+                                {% if session.get('language') == 'id' %}
+                                Model AI kami melakukan analisis mendalam pada gambar untuk mendeteksi masalah.
+                                {% else %}
+                                Our AI model performs a deep analysis on the image to detect issues.
+                                {% endif %}
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="text-center">
+                            <div class="bg-primary rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
+                                <i class="fas fa-clipboard-list text-white fa-2x"></i>
+                            </div>
+                            <h5>
+                                {% if session.get('language') == 'id' %}
+                                3. Dapatkan Hasil
+                                {% else %}
+                                3. Get Results
+                                {% endif %}
+                            </h5>
+                            <p>
+                                {% if session.get('language') == 'id' %}
+                                Lihat hasil analisis dengan gejala dan rekomendasi solusi.
+                                {% else %}
+                                View analysis results with symptoms and recommended solutions.
+                                {% endif %}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Disclaimer -->
+<section class="py-4 bg-secondary text-white">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-10 text-center">
+                <h5>
+                    {% if session.get('language') == 'id' %}
+                    Perhatian
+                    {% else %}
+                    Disclaimer
+                    {% endif %}
+                </h5>
+                <p>
+                    {% if session.get('language') == 'id' %}
+                    Aplikasi ini bertujuan untuk memberikan analisis awal dan bukan pengganti diagnosis profesional. Selalu konsultasikan dengan dokter gigi untuk perawatan yang tepat.
+                    {% else %}
+                    This application is intended to provide preliminary analysis and is not a substitute for professional diagnosis. Always consult with a dentist for proper treatment.
+                    {% endif %}
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

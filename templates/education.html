@@ -1,0 +1,226 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+{% if session.get('language') == 'id' %}
+Edukasi Kesehatan Gigi
+{% else %}
+Dental Health Education
+{% endif %}
+{% endblock %}
+
+{% block content %}
+<section class="py-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-10">
+                <h1 class="text-center mb-5">
+                    {% if session.get('language') == 'id' %}
+                    Edukasi Kesehatan Gigi
+                    {% else %}
+                    Dental Health Education
+                    {% endif %}
+                </h1>
+                
+                <div class="mb-5">
+                    <h4>
+                        {% if session.get('language') == 'id' %}
+                        Memahami Karies Gigi dan Pencegahannya
+                        {% else %}
+                        Understanding Dental Cavities and Prevention
+                        {% endif %}
+                    </h4>
+                    <p class="lead">
+                        {% if session.get('language') == 'id' %}
+                        Karies gigi (gigi berlubang) adalah kerusakan pada gigi yang disebabkan oleh asam yang dihasilkan oleh bakteri plak. Mengenali gejala awal dan mencari perawatan tepat waktu dapat mencegah komplikasi serius.
+                        {% else %}
+                        Dental caries (cavities) are tooth damage caused by acids produced by plaque bacteria. Recognizing early symptoms and seeking timely treatment can prevent serious complications.
+                        {% endif %}
+                    </p>
+                </div>
+                
+                <h4 class="mb-4">
+                    {% if session.get('language') == 'id' %}
+                    Kondisi Umum Karies Gigi
+                    {% else %}
+                    Common Dental Cavity Conditions
+                    {% endif %}
+                </h4>
+                
+                {% for condition in conditions %}
+                <div class="card condition-card mb-4">
+                    <div class="card-header condition-accordion-button" data-target="condition-{{ condition.id }}">
+                        <h5 class="mb-0">{{ condition.name }}</h5>
+                        {% if condition.severity_level == 1 %}
+                        <span class="badge bg-success condition-badge">
+                            {% if session.get('language') == 'id' %}
+                            Ringan
+                            {% else %}
+                            Mild
+                            {% endif %}
+                        </span>
+                        {% elif condition.severity_level == 2 %}
+                        <span class="badge bg-info condition-badge">
+                            {% if session.get('language') == 'id' %}
+                            Sedang
+                            {% else %}
+                            Moderate
+                            {% endif %}
+                        </span>
+                        {% elif condition.severity_level == 3 %}
+                        <span class="badge bg-warning condition-badge">
+                            {% if session.get('language') == 'id' %}
+                            Signifikan
+                            {% else %}
+                            Significant
+                            {% endif %}
+                        </span>
+                        {% elif condition.severity_level == 4 %}
+                        <span class="badge bg-danger condition-badge">
+                            {% if session.get('language') == 'id' %}
+                            Serius
+                            {% else %}
+                            Severe
+                            {% endif %}
+                        </span>
+                        {% elif condition.severity_level == 5 %}
+                        <span class="badge bg-dark condition-badge">
+                            {% if session.get('language') == 'id' %}
+                            Kritis
+                            {% else %}
+                            Critical
+                            {% endif %}
+                        </span>
+                        {% endif %}
+                    </div>
+                    <div id="condition-{{ condition.id }}" class="condition-accordion-content">
+                        <div class="card-body">
+                            <h6>
+                                {% if session.get('language') == 'id' %}
+                                Gejala:
+                                {% else %}
+                                Symptoms:
+                                {% endif %}
+                            </h6>
+                            <ul>
+                                {% for symptom in condition.symptoms %}
+                                <li>{{ symptom }}</li>
+                                {% endfor %}
+                            </ul>
+                            
+                            <h6>
+                                {% if session.get('language') == 'id' %}
+                                Solusi:
+                                {% else %}
+                                Solutions:
+                                {% endif %}
+                            </h6>
+                            <ul>
+                                {% for solution in condition.solutions %}
+                                <li>{{ solution }}</li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+                
+                <div class="mt-5">
+                    <h4>
+                        {% if session.get('language') == 'id' %}
+                        Tips Perawatan Gigi Sehari-hari
+                        {% else %}
+                        Daily Dental Care Tips
+                        {% endif %}
+                    </h4>
+                    <div class="row g-4 mt-2">
+                        <div class="col-md-6">
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <h5 class="card-title">
+                                        <i class="fas fa-tooth text-primary me-2"></i>
+                                        {% if session.get('language') == 'id' %}
+                                        Sikat Gigi dengan Benar
+                                        {% else %}
+                                        Brush Properly
+                                        {% endif %}
+                                    </h5>
+                                    <p class="card-text">
+                                        {% if session.get('language') == 'id' %}
+                                        Sikat gigi Anda dua kali sehari selama dua menit menggunakan pasta gigi berfluoride. Gunakan sikat dengan bulu halus dan dengan teknik melingkar lembut.
+                                        {% else %}
+                                        Brush your teeth twice daily for two minutes using fluoride toothpaste. Use a soft-bristled brush and a gentle circular technique.
+                                        {% endif %}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <h5 class="card-title">
+                                        <i class="fas fa-wind text-primary me-2"></i>
+                                        {% if session.get('language') == 'id' %}
+                                        Gunakan Benang Gigi
+                                        {% else %}
+                                        Floss Daily
+                                        {% endif %}
+                                    </h5>
+                                    <p class="card-text">
+                                        {% if session.get('language') == 'id' %}
+                                        Bersihkan sela-sela gigi setiap hari dengan benang gigi untuk menghilangkan plak dan sisa makanan yang tidak bisa dijangkau sikat gigi.
+                                        {% else %}
+                                        Clean between your teeth daily with dental floss to remove plaque and food debris that your toothbrush can't reach.
+                                        {% endif %}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <h5 class="card-title">
+                                        <i class="fas fa-utensils text-primary me-2"></i>
+                                        {% if session.get('language') == 'id' %}
+                                        Perhatikan Pola Makan
+                                        {% else %}
+                                        Watch Your Diet
+                                        {% endif %}
+                                    </h5>
+                                    <p class="card-text">
+                                        {% if session.get('language') == 'id' %}
+                                        Batasi makanan dan minuman manis. Hindari ngemil di antara waktu makan dan minum banyak air putih.
+                                        {% else %}
+                                        Limit sugary foods and drinks. Avoid snacking between meals and drink plenty of water.
+                                        {% endif %}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <h5 class="card-title">
+                                        <i class="fas fa-calendar-check text-primary me-2"></i>
+                                        {% if session.get('language') == 'id' %}
+                                        Pemeriksaan Rutin
+                                        {% else %}
+                                        Regular Check-ups
+                                        {% endif %}
+                                    </h5>
+                                    <p class="card-text">
+                                        {% if session.get('language') == 'id' %}
+                                        Kunjungi dokter gigi Anda setiap enam bulan untuk pemeriksaan dan pembersihan profesional.
+                                        {% else %}
+                                        Visit your dentist every six months for check-ups and professional cleaning.
+                                        {% endif %}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

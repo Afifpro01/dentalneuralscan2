@@ -1,0 +1,193 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+{% if session.get('language') == 'id' %}
+Tentang Kami
+{% else %}
+About Us
+{% endif %}
+{% endblock %}
+
+{% block content %}
+<section class="py-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-10">
+                <h1 class="text-center mb-5">
+                    {% if session.get('language') == 'id' %}
+                    Tentang DentalScan AI
+                    {% else %}
+                    About DentalScan AI
+                    {% endif %}
+                </h1>
+                
+                <div class="row align-items-center mb-5">
+                    <div class="col-md-6">
+                        <h3>
+                            {% if session.get('language') == 'id' %}
+                            Misi Kami
+                            {% else %}
+                            Our Mission
+                            {% endif %}
+                        </h3>
+                        <p class="lead">
+                            {% if session.get('language') == 'id' %}
+                            DentalScan AI bertujuan untuk meningkatkan kesehatan gigi global dengan membuat teknologi deteksi dini masalah gigi tersedia untuk semua.
+                            {% else %}
+                            DentalScan AI aims to improve global dental health by making early detection technology for dental issues accessible to everyone.
+                            {% endif %}
+                        </p>
+                        <p>
+                            {% if session.get('language') == 'id' %}
+                            Kami percaya bahwa dengan teknologi kecerdasan buatan, kami dapat membantu mendeteksi masalah gigi lebih awal, mendorong perawatan lebih cepat, dan mencegah komplikasi serius.
+                            {% else %}
+                            We believe that with artificial intelligence technology, we can help detect dental issues earlier, encourage faster treatment, and prevent serious complications.
+                            {% endif %}
+                        </p>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="text-center">
+                            <img src="{{ url_for('static', filename='assets/logo.svg') }}" alt="DentalScan AI Logo" class="img-fluid" style="max-width: 300px;">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row mb-5">
+                    <div class="col-12">
+                        <h3 class="text-center mb-4">
+                            {% if session.get('language') == 'id' %}
+                            Teknologi Kami
+                            {% else %}
+                            Our Technology
+                            {% endif %}
+                        </h3>
+                        <div class="card border-0 shadow-sm">
+                            <div class="card-body p-4">
+                                <h5>
+                                    {% if session.get('language') == 'id' %}
+                                    Algoritma Neural Network Canggih
+                                    {% else %}
+                                    Advanced Neural Network Algorithms
+                                    {% endif %}
+                                </h5>
+                                <p>
+                                    {% if session.get('language') == 'id' %}
+                                    DentalScan AI menggunakan teknologi deep learning state-of-the-art untuk menganalisis gambar gigi. Algoritma kami dilatih dengan ribuan gambar karies gigi untuk memungkinkan deteksi akurat berbagai kondisi.
+                                    {% else %}
+                                    DentalScan AI uses state-of-the-art deep learning technology to analyze dental images. Our algorithms are trained on thousands of dental cavity images to enable accurate detection of various conditions.
+                                    {% endif %}
+                                </p>
+                                <h5>
+                                    {% if session.get('language') == 'id' %}
+                                    Proses Analisis
+                                    {% else %}
+                                    Analysis Process
+                                    {% endif %}
+                                </h5>
+                                <p>
+                                    {% if session.get('language') == 'id' %}
+                                    Sistem kami memproses gambar dalam beberapa langkah:
+                                    {% else %}
+                                    Our system processes images in several steps:
+                                    {% endif %}
+                                </p>
+                                <ol>
+                                    <li>
+                                        {% if session.get('language') == 'id' %}
+                                        Pra-pemrosesan gambar untuk standardisasi dan peningkatan kualitas
+                                        {% else %}
+                                        Image pre-processing for standardization and quality enhancement
+                                        {% endif %}
+                                    </li>
+                                    <li>
+                                        {% if session.get('language') == 'id' %}
+                                        Segmentasi area gigi untuk fokus analisis
+                                        {% else %}
+                                        Segmentation of dental areas for focused analysis
+                                        {% endif %}
+                                    </li>
+                                    <li>
+                                        {% if session.get('language') == 'id' %}
+                                        Fitur ekstraksi menggunakan jaringan saraf konvolusional (CNN)
+                                        {% else %}
+                                        Feature extraction using convolutional neural networks (CNN)
+                                        {% endif %}
+                                    </li>
+                                    <li>
+                                        {% if session.get('language') == 'id' %}
+                                        Klasifikasi kondisi dan perhitungan tingkat kepercayaan
+                                        {% else %}
+                                        Condition classification and confidence level calculation
+                                        {% endif %}
+                                    </li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row mb-5">
+                    <div class="col-12">
+                        <h3 class="text-center mb-4">
+                            {% if session.get('language') == 'id' %}
+                            Keterbatasan
+                            {% else %}
+                            Limitations
+                            {% endif %}
+                        </h3>
+                        <div class="alert alert-info">
+                            <p>
+                                {% if session.get('language') == 'id' %}
+                                Meskipun DentalScan AI menggunakan teknologi AI canggih, penting untuk memahami bahwa:
+                                {% else %}
+                                While DentalScan AI uses advanced AI technology, it's important to understand that:
+                                {% endif %}
+                            </p>
+                            <ul>
+                                <li>
+                                    {% if session.get('language') == 'id' %}
+                                    Analisis kami adalah alat penyaringan awal, bukan diagnosis medis definitif.
+                                    {% else %}
+                                    Our analysis is an early screening tool, not a definitive medical diagnosis.
+                                    {% endif %}
+                                </li>
+                                <li>
+                                    {% if session.get('language') == 'id' %}
+                                    Kualitas gambar yang diupload sangat mempengaruhi akurasi hasil.
+                                    {% else %}
+                                    The quality of uploaded images greatly affects the accuracy of results.
+                                    {% endif %}
+                                </li>
+                                <li>
+                                    {% if session.get('language') == 'id' %}
+                                    Kondisi tertentu mungkin terlewatkan atau teridentifikasi keliru.
+                                    {% else %}
+                                    Certain conditions may be missed or misidentified.
+                                    {% endif %}
+                                </li>
+                                <li>
+                                    {% if session.get('language') == 'id' %}
+                                    Selalu berkonsultasi dengan dokter gigi untuk diagnosis dan perawatan profesional.
+                                    {% else %}
+                                    Always consult with a dentist for professional diagnosis and treatment.
+                                    {% endif %}
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="text-center">
+                    <a href="{{ url_for('index') }}" class="btn btn-primary btn-lg">
+                        {% if session.get('language') == 'id' %}
+                        Coba Analisis Sekarang
+                        {% else %}
+                        Try Analysis Now
+                        {% endif %}
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

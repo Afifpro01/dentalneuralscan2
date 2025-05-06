@@ -1,0 +1,188 @@
+/* Custom styling that extends Bootstrap */
+
+:root {
+    --dental-primary: #00A8E8;
+    --dental-secondary: #007EA7;
+    --dental-accent: #FF9F1C;
+    --dental-light: #F8F9FA;
+    --dental-dark: #212529;
+}
+
+/* Hero section */
+.hero-section {
+    min-height: 80vh;
+    background: linear-gradient(135deg, var(--bs-dark) 0%, var(--bs-dark) 100%);
+    display: flex;
+    align-items: center;
+}
+
+/* Upload section */
+.upload-section {
+    background-color: rgba(0, 0, 0, 0.05);
+    border-radius: 1rem;
+    padding: 2rem;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+.upload-icon {
+    max-width: 80px;
+    margin-bottom: 1rem;
+}
+
+/* Image preview */
+.image-preview-container {
+    position: relative;
+    max-width: 100%;
+    margin: 1rem auto;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
+}
+
+.image-preview {
+    width: 100%;
+    max-height: 300px;
+    object-fit: contain;
+}
+
+/* Loading overlay */
+.loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    color: white;
+}
+
+/* Analysis Results */
+.confidence-meter-container {
+    height: 30px;
+    background-color: var(--bs-gray-300);
+    border-radius: 15px;
+    overflow: hidden;
+    margin: 1rem 0;
+}
+
+.confidence-meter {
+    height: 100%;
+    width: 0;
+    background: linear-gradient(90deg, var(--bs-danger) 0%, var(--bs-warning) 50%, var(--bs-success) 100%);
+    transition: width 1s ease-in-out;
+}
+
+/* Condition Cards */
+.condition-card {
+    border-radius: 0.5rem;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    margin-bottom: 1.5rem;
+}
+
+.condition-card:hover {
+    transform: translateY(-5px);
+}
+
+.condition-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 10;
+}
+
+/* Accordion for conditions */
+.condition-accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+
+.condition-accordion-content.show {
+    max-height: 500px;
+}
+
+.condition-accordion-button {
+    cursor: pointer;
+    position: relative;
+}
+
+.condition-accordion-button:after {
+    content: '\f078';
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    position: absolute;
+    right: 1rem;
+    transition: transform 0.3s ease;
+}
+
+.condition-accordion-button.active:after {
+    transform: rotate(180deg);
+}
+
+/* Footer */
+.footer {
+    background-color: var(--bs-dark);
+    color: var(--bs-light);
+    padding: 2rem 0;
+}
+
+/* Language Selector */
+.language-selector {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    z-index: 1000;
+}
+
+.language-toggle {
+    cursor: pointer;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    background-color: transparent;
+    transition: background-color 0.3s ease;
+}
+
+.language-toggle:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.language-toggle.active {
+    font-weight: bold;
+    color: var(--dental-accent);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bs-gray-200);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--bs-gray-500);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--bs-gray-600);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .hero-section {
+        min-height: 60vh;
+    }
+    
+    .language-selector {
+        top: 3.5rem;
+        right: 0.5rem;
+    }
+}

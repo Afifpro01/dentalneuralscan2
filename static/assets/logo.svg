@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="50" viewBox="0 0 200 50" fill="none">
+  <path d="M25 10C15.07 10 7 18.07 7 28C7 37.93 15.07 46 25 46C34.93 46 43 37.93 43 28C43 18.07 34.93 10 25 10Z" stroke="#007EA7" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M20 22C21.66 22 23 20.66 23 19C23 17.34 21.66 16 20 16C18.34 16 17 17.34 17 19C17 20.66 18.34 22 20 22Z" fill="#FF9F1C"/>
+  <path d="M30 22C31.66 22 33 20.66 33 19C33 17.34 31.66 16 30 16C28.34 16 27 17.34 27 19C27 20.66 28.34 22 30 22Z" fill="#FF9F1C"/>
+  <path d="M17 31C17 31 20 36 25 36C30 36 33 31 33 31" stroke="#FF9F1C" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M17 40V42M21 40V43M25 40V44M29 40V43M33 40V42" stroke="#007EA7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M55 20H60C62.2 20 64 21.8 64 24V24C64 26.2 62.2 28 60 28H55V20Z" stroke="#007EA7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M55 28H61C63.2 28 65 29.8 65 32V32C65 34.2 63.2 36 61 36H55V28Z" stroke="#007EA7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M75 20V36M69 20H81" stroke="#007EA7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M89 20H94C96.2 20 98 21.8 98 24V32C98 34.2 96.2 36 94 36H89V20Z" stroke="#007EA7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M121 20H126C128.2 20 130 21.8 130 24V32C130 34.2 128.2 36 126 36H121V20Z" stroke="#007EA7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M108 20V36M108 28H114" stroke="#007EA7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M140 20L147 36M154 20L147 36" stroke="#FF9F1C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M162 20H168C170.2 20 172 21.8 172 24V24C172 26.2 170.2 28 168 28H162V20Z" stroke="#FF9F1C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M162 28H169C171.2 28 173 29.8 173 32V32C173 34.2 171.2 36 169 36H162V28Z" stroke="#FF9F1C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M183 20V36M183 20H191" stroke="#FF9F1C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

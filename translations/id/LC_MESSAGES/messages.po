@@ -1,0 +1,277 @@
+# Indonesian translations for DentalScan AI.
+# Copyright (C) 2023 DentalScan AI
+# This file is distributed under the same license as the DentalScan AI project.
+msgid ""
+msgstr ""
+"Project-Id-Version: 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-10-01 10:00+0000\n"
+"PO-Revision-Date: 2023-10-01 10:00+0000\n"
+"Last-Translator: DentalScan AI Team\n"
+"Language-Team: Indonesian\n"
+"Language: id\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+# Navigation
+msgid "Home"
+msgstr "Beranda"
+
+msgid "Education"
+msgstr "Edukasi"
+
+msgid "About"
+msgstr "Tentang Kami"
+
+# Home page
+msgid "Dental Cavity Detection"
+msgstr "Deteksi Karies Gigi"
+
+msgid "Early Dental Cavity Detection with AI"
+msgstr "Deteksi Awal Karies Gigi dengan AI"
+
+msgid "Simply upload a photo of your teeth, and our AI will instantly analyze potential cavity issues."
+msgstr "Cukup unggah foto gigi Anda, dan AI kami akan menganalisis potensi masalah gigi berlubang secara instan."
+
+msgid "Get preliminary analysis before visiting a dentist for professional consultation."
+msgstr "Dapatkan hasil analisis sementara sebelum mengunjungi dokter gigi untuk konsultasi profesional."
+
+msgid "Start Analysis"
+msgstr "Mulai Analisis"
+
+msgid "Learn More"
+msgstr "Pelajari Lebih Lanjut"
+
+msgid "Upload Your Dental Photo"
+msgstr "Unggah Foto Gigi Anda"
+
+msgid "Supported formats: JPG, JPEG, PNG"
+msgstr "Format yang didukung: JPG, JPEG, PNG"
+
+msgid "Analyze Now"
+msgstr "Analisis Sekarang"
+
+msgid "Key Features"
+msgstr "Fitur Utama"
+
+msgid "Advanced AI Analysis"
+msgstr "Analisis AI Terdepan"
+
+msgid "Our deep learning algorithms can identify cavity issues with high accuracy."
+msgstr "Algoritma pembelajaran mendalam kami dapat mengidentifikasi masalah gigi berlubang dengan akurasi tinggi."
+
+msgid "Instant Results"
+msgstr "Hasil Instan"
+
+msgid "Get analysis results in seconds, without waiting for an appointment."
+msgstr "Dapatkan hasil analisis dalam hitungan detik, tanpa menunggu janji temu."
+
+msgid "Educational Recommendations"
+msgstr "Rekomendasi Edukasi"
+
+msgid "Receive educational advice and solutions based on your analysis results."
+msgstr "Dapatkan saran dan solusi pendidikan berdasarkan hasil analisis Anda."
+
+msgid "How It Works"
+msgstr "Cara Kerjanya"
+
+msgid "1. Upload Photo"
+msgstr "1. Unggah Foto"
+
+msgid "Take a clear photo of your teeth and upload it to our platform."
+msgstr "Ambil foto gigi Anda dengan jelas dan unggah ke platform kami."
+
+msgid "2. AI Analysis"
+msgstr "2. Analisis AI"
+
+msgid "Our AI model performs a deep analysis on the image to detect issues."
+msgstr "Model AI kami melakukan analisis mendalam pada gambar untuk mendeteksi masalah."
+
+msgid "3. Get Results"
+msgstr "3. Dapatkan Hasil"
+
+msgid "View analysis results with symptoms and recommended solutions."
+msgstr "Lihat hasil analisis dengan gejala dan rekomendasi solusi."
+
+msgid "Disclaimer"
+msgstr "Perhatian"
+
+msgid "This application is intended to provide preliminary analysis and is not a substitute for professional diagnosis. Always consult with a dentist for proper treatment."
+msgstr "Aplikasi ini bertujuan untuk memberikan analisis awal dan bukan pengganti diagnosis profesional. Selalu konsultasikan dengan dokter gigi untuk perawatan yang tepat."
+
+# Results page
+msgid "Analysis Results"
+msgstr "Hasil Analisis"
+
+msgid "Dental Cavity Analysis Results"
+msgstr "Hasil Analisis Karies Gigi"
+
+msgid "Analyzed Image"
+msgstr "Gambar Dianalisis"
+
+msgid "Detected Condition"
+msgstr "Kondisi Terdeteksi"
+
+msgid "Confidence Level"
+msgstr "Tingkat Kepercayaan"
+
+msgid "Symptoms"
+msgstr "Gejala"
+
+msgid "Recommended Solutions"
+msgstr "Solusi yang Direkomendasikan"
+
+msgid "Important:"
+msgstr "Penting:"
+
+msgid "These results are only a preliminary analysis. Please consult with a dentist for professional diagnosis and treatment plan."
+msgstr "Hasil ini hanya merupakan analisis awal. Harap konsultasikan dengan dokter gigi untuk diagnosis profesional dan rencana perawatan."
+
+msgid "Analyze Again"
+msgstr "Analisis Lagi"
+
+msgid "Learn About Dental Conditions"
+msgstr "Pelajari Tentang Kondisi Gigi"
+
+# Education page
+msgid "Dental Health Education"
+msgstr "Edukasi Kesehatan Gigi"
+
+msgid "Understanding Dental Cavities and Prevention"
+msgstr "Memahami Karies Gigi dan Pencegahannya"
+
+msgid "Dental caries (cavities) are tooth damage caused by acids produced by plaque bacteria. Recognizing early symptoms and seeking timely treatment can prevent serious complications."
+msgstr "Karies gigi (gigi berlubang) adalah kerusakan pada gigi yang disebabkan oleh asam yang dihasilkan oleh bakteri plak. Mengenali gejala awal dan mencari perawatan tepat waktu dapat mencegah komplikasi serius."
+
+msgid "Common Dental Cavity Conditions"
+msgstr "Kondisi Umum Karies Gigi"
+
+msgid "Mild"
+msgstr "Ringan"
+
+msgid "Moderate"
+msgstr "Sedang"
+
+msgid "Significant"
+msgstr "Signifikan"
+
+msgid "Severe"
+msgstr "Serius"
+
+msgid "Critical"
+msgstr "Kritis"
+
+msgid "Symptoms:"
+msgstr "Gejala:"
+
+msgid "Solutions:"
+msgstr "Solusi:"
+
+msgid "Daily Dental Care Tips"
+msgstr "Tips Perawatan Gigi Sehari-hari"
+
+msgid "Brush Properly"
+msgstr "Sikat Gigi dengan Benar"
+
+msgid "Brush your teeth twice daily for two minutes using fluoride toothpaste. Use a soft-bristled brush and a gentle circular technique."
+msgstr "Sikat gigi Anda dua kali sehari selama dua menit menggunakan pasta gigi berfluoride. Gunakan sikat dengan bulu halus dan dengan teknik melingkar lembut."
+
+msgid "Floss Daily"
+msgstr "Gunakan Benang Gigi"
+
+msgid "Clean between your teeth daily with dental floss to remove plaque and food debris that your toothbrush can't reach."
+msgstr "Bersihkan sela-sela gigi setiap hari dengan benang gigi untuk menghilangkan plak dan sisa makanan yang tidak bisa dijangkau sikat gigi."
+
+msgid "Watch Your Diet"
+msgstr "Perhatikan Pola Makan"
+
+msgid "Limit sugary foods and drinks. Avoid snacking between meals and drink plenty of water."
+msgstr "Batasi makanan dan minuman manis. Hindari ngemil di antara waktu makan dan minum banyak air putih."
+
+msgid "Regular Check-ups"
+msgstr "Pemeriksaan Rutin"
+
+msgid "Visit your dentist every six months for check-ups and professional cleaning."
+msgstr "Kunjungi dokter gigi Anda setiap enam bulan untuk pemeriksaan dan pembersihan profesional."
+
+# About page
+msgid "About Us"
+msgstr "Tentang Kami"
+
+msgid "About DentalScan AI"
+msgstr "Tentang DentalScan AI"
+
+msgid "Our Mission"
+msgstr "Misi Kami"
+
+msgid "DentalScan AI aims to improve global dental health by making early detection technology for dental issues accessible to everyone."
+msgstr "DentalScan AI bertujuan untuk meningkatkan kesehatan gigi global dengan membuat teknologi deteksi dini masalah gigi tersedia untuk semua."
+
+msgid "We believe that with artificial intelligence technology, we can help detect dental issues earlier, encourage faster treatment, and prevent serious complications."
+msgstr "Kami percaya bahwa dengan teknologi kecerdasan buatan, kami dapat membantu mendeteksi masalah gigi lebih awal, mendorong perawatan lebih cepat, dan mencegah komplikasi serius."
+
+msgid "Our Technology"
+msgstr "Teknologi Kami"
+
+msgid "Advanced Neural Network Algorithms"
+msgstr "Algoritma Neural Network Canggih"
+
+msgid "DentalScan AI uses state-of-the-art deep learning technology to analyze dental images. Our algorithms are trained on thousands of dental cavity images to enable accurate detection of various conditions."
+msgstr "DentalScan AI menggunakan teknologi deep learning state-of-the-art untuk menganalisis gambar gigi. Algoritma kami dilatih dengan ribuan gambar karies gigi untuk memungkinkan deteksi akurat berbagai kondisi."
+
+msgid "Analysis Process"
+msgstr "Proses Analisis"
+
+msgid "Our system processes images in several steps:"
+msgstr "Sistem kami memproses gambar dalam beberapa langkah:"
+
+msgid "Image pre-processing for standardization and quality enhancement"
+msgstr "Pra-pemrosesan gambar untuk standardisasi dan peningkatan kualitas"
+
+msgid "Segmentation of dental areas for focused analysis"
+msgstr "Segmentasi area gigi untuk fokus analisis"
+
+msgid "Feature extraction using convolutional neural networks (CNN)"
+msgstr "Fitur ekstraksi menggunakan jaringan saraf konvolusional (CNN)"
+
+msgid "Condition classification and confidence level calculation"
+msgstr "Klasifikasi kondisi dan perhitungan tingkat kepercayaan"
+
+msgid "Limitations"
+msgstr "Keterbatasan"
+
+msgid "While DentalScan AI uses advanced AI technology, it's important to understand that:"
+msgstr "Meskipun DentalScan AI menggunakan teknologi AI canggih, penting untuk memahami bahwa:"
+
+msgid "Our analysis is an early screening tool, not a definitive medical diagnosis."
+msgstr "Analisis kami adalah alat penyaringan awal, bukan diagnosis medis definitif."
+
+msgid "The quality of uploaded images greatly affects the accuracy of results."
+msgstr "Kualitas gambar yang diupload sangat mempengaruhi akurasi hasil."
+
+msgid "Certain conditions may be missed or misidentified."
+msgstr "Kondisi tertentu mungkin terlewatkan atau teridentifikasi keliru."
+
+msgid "Always consult with a dentist for professional diagnosis and treatment."
+msgstr "Selalu berkonsultasi dengan dokter gigi untuk diagnosis dan perawatan profesional."
+
+msgid "Try Analysis Now"
+msgstr "Coba Analisis Sekarang"
+
+# Footer
+msgid "DentalScan AI"
+msgstr "DentalScan AI"
+
+msgid "AI-powered early dental cavity detection"
+msgstr "Deteksi awal karies gigi berbasis kecerdasan buatan"
+
+msgid "© 2023 DentalScan AI. All Rights Reserved."
+msgstr "© 2023 DentalScan AI. Hak Cipta Dilindungi."
+
+msgid "Please note: This tool is for informational purposes only, not a replacement for professional consultation with a dentist."
+msgstr "Harap dicatat: Alat ini hanya untuk tujuan informasi, bukan pengganti konsultasi profesional dengan dokter gigi."
+
+msgid "Analyzing image..."
+msgstr "Menganalisis gambar..."
