@@ -47,6 +47,15 @@
                         </a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link {% if request.path == '/neural-network' %}active{% endif %}" href="{{ url_for('neural_network') }}">
+                            {% if session.get('language') == 'id' %}
+                            Proses Neural Network
+                            {% else %}
+                            Neural Network Process
+                            {% endif %}
+                        </a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link {% if request.path == '/about' %}active{% endif %}" href="{{ url_for('about') }}">
                             {% if session.get('language') == 'id' %}
                             Tentang Kami

@@ -10,6 +10,7 @@ import numpy as np
 from utils.model_utils import load_model, predict_cavity
 from utils.image_utils import preprocess_image, allowed_file
 from utils.dental_conditions import get_dental_conditions
+from utils.neural_network_calculator import NeuralNetworkCalculator, get_condition_names
 
 # Configure logging
 logging.basicConfig(level=logging.DEBUG)
@@ -49,6 +50,63 @@ def about():
 def education():
     dental_conditions = get_dental_conditions(get_locale())
     return render_template('education.html', conditions=dental_conditions)
+
+@app.route('/neural-network')
+def neural_network():
+    # Simulasi data input berdasarkan diagnosis terakhir dari session
+    # Atau menggunakan contoh data untuk demonstrasi
+    sample_features = [0.67, 0.33, 0.5, 0.75, 0.5]  # Contoh fitur input
+    
+    # Initialize neural network calculator
+    nn_calc = NeuralNetworkCalculator()
+    
+    # Forward propagation
+    forward_results = nn_calc.forward_propagation(sample_features)
+    
+    # Backpropagation (menggunakan prediksi sebagai target untuk demo)
+    target_class = forward_results['predicted_class']
+    backprop_results = nn_calc.backpropagation(sample_features, target_class, forward_results)
+    
+    # Calculate metrics
+    metrics = nn_calc.calculate_metrics()
+    
+    # Get formatted weights
+    weights = nn_calc.get_weights_formatted()
+    
+    # Format calculations
+    calculations = nn_calc.format_calculations(forward_results)
+    
+    # Get condition names
+    condition_names = get_condition_names(get_locale())
+    
+    # Prepare data for template
+    template_data = {
+        'features': {
+            'pain_level': sample_features[0],
+            'discoloration': sample_features[1], 
+            'sensitivity': sample_features[2],
+            'additional_symptoms': sample_features[3],
+            'duration': sample_features[4],
+            'values': sample_features
+        },
+        'weights': weights,
+        'calculations': calculations,
+        'backprop': {
+            'target_vector': [round(x, 2) for x in backprop_results['target_vector']],
+            'output_error': [round(x, 4) for x in backprop_results['output_error']],
+            'output_gradients': [round(x, 4) for x in backprop_results['output_gradients']],
+            'hidden_gradients': [round(x, 4) for x in backprop_results['hidden_gradients']],
+            'learning_rate': backprop_results['learning_rate']
+        },
+        'metrics': metrics,
+        'condition_names': condition_names,
+        'result': {
+            'predicted_class': forward_results['predicted_class'],
+            'confidence': round(forward_results['confidence'], 2)
+        }
+    }
+    
+    return render_template('neural_network.html', **template_data)
 
 @app.route('/analyze', methods=['POST'])
 def analyze():

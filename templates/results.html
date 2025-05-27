@@ -108,6 +108,14 @@ Analysis Results
                                 Analyze Again
                                 {% endif %}
                             </a>
+                            <a href="{{ url_for('neural_network') }}" class="btn btn-info me-3">
+                                <i class="fas fa-brain me-2"></i>
+                                {% if session.get('language') == 'id' %}
+                                Lihat Proses Neural Network
+                                {% else %}
+                                View Neural Network Process
+                                {% endif %}
+                            </a>
                             <a href="{{ url_for('education') }}" class="btn btn-primary">
                                 <i class="fas fa-book-medical me-2"></i>
                                 {% if session.get('language') == 'id' %}

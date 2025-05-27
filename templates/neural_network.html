@@ -1,0 +1,645 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+{% if session.get('language') == 'id' %}
+Proses Neural Network
+{% else %}
+Neural Network Process
+{% endif %}
+{% endblock %}
+
+{% block content %}
+<section class="py-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-10">
+                <h1 class="text-center mb-5">
+                    {% if session.get('language') == 'id' %}
+                    Proses Neural Network untuk Diagnosis Gigi
+                    {% else %}
+                    Neural Network Process for Dental Diagnosis
+                    {% endif %}
+                </h1>
+                
+                <!-- Input Layer -->
+                <div class="card mb-4">
+                    <div class="card-header bg-primary text-white">
+                        <h4 class="mb-0">
+                            {% if session.get('language') == 'id' %}
+                            1. Layer Input (Input Features)
+                            {% else %}
+                            1. Input Layer (Input Features)
+                            {% endif %}
+                        </h4>
+                    </div>
+                    <div class="card-body">
+                        <p>
+                            {% if session.get('language') == 'id' %}
+                            Gejala yang diinput pengguna diubah menjadi vektor fitur numerik:
+                            {% else %}
+                            User symptoms are converted into numerical feature vectors:
+                            {% endif %}
+                        </p>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h6>
+                                    {% if session.get('language') == 'id' %}
+                                    Fitur Input:
+                                    {% else %}
+                                    Input Features:
+                                    {% endif %}
+                                </h6>
+                                <ul class="list-group">
+                                    <li class="list-group-item">X₁: {{ features.pain_level }} 
+                                        <small class="text-muted">
+                                            {% if session.get('language') == 'id' %}
+                                            (Tingkat Nyeri)
+                                            {% else %}
+                                            (Pain Level)
+                                            {% endif %}
+                                        </small>
+                                    </li>
+                                    <li class="list-group-item">X₂: {{ features.discoloration }} 
+                                        <small class="text-muted">
+                                            {% if session.get('language') == 'id' %}
+                                            (Perubahan Warna)
+                                            {% else %}
+                                            (Discoloration)
+                                            {% endif %}
+                                        </small>
+                                    </li>
+                                    <li class="list-group-item">X₃: {{ features.sensitivity }} 
+                                        <small class="text-muted">
+                                            {% if session.get('language') == 'id' %}
+                                            (Sensitivitas)
+                                            {% else %}
+                                            (Sensitivity)
+                                            {% endif %}
+                                        </small>
+                                    </li>
+                                    <li class="list-group-item">X₄: {{ features.additional_symptoms }} 
+                                        <small class="text-muted">
+                                            {% if session.get('language') == 'id' %}
+                                            (Gejala Tambahan)
+                                            {% else %}
+                                            (Additional Symptoms)
+                                            {% endif %}
+                                        </small>
+                                    </li>
+                                    <li class="list-group-item">X₅: {{ features.duration }} 
+                                        <small class="text-muted">
+                                            {% if session.get('language') == 'id' %}
+                                            (Durasi)
+                                            {% else %}
+                                            (Duration)
+                                            {% endif %}
+                                        </small>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <h6>
+                                    {% if session.get('language') == 'id' %}
+                                    Vektor Input:
+                                    {% else %}
+                                    Input Vector:
+                                    {% endif %}
+                                </h6>
+                                <div class="bg-light p-3 rounded">
+                                    <code>X = [{{ features.pain_level }}, {{ features.discoloration }}, {{ features.sensitivity }}, {{ features.additional_symptoms }}, {{ features.duration }}]</code>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hidden Layer Calculation -->
+                <div class="card mb-4">
+                    <div class="card-header bg-info text-white">
+                        <h4 class="mb-0">
+                            {% if session.get('language') == 'id' %}
+                            2. Perhitungan Hidden Layer
+                            {% else %}
+                            2. Hidden Layer Calculation
+                            {% endif %}
+                        </h4>
+                    </div>
+                    <div class="card-body">
+                        <p>
+                            {% if session.get('language') == 'id' %}
+                            Perhitungan untuk setiap neuron di hidden layer menggunakan weighted sum dan fungsi aktivasi sigmoid:
+                            {% else %}
+                            Calculation for each neuron in the hidden layer using weighted sum and sigmoid activation function:
+                            {% endif %}
+                        </p>
+                        
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h6>
+                                    {% if session.get('language') == 'id' %}
+                                    Weight Matrix (W₁):
+                                    {% else %}
+                                    Weight Matrix (W₁):
+                                    {% endif %}
+                                </h6>
+                                <table class="table table-sm table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th></th>
+                                            <th>H₁</th>
+                                            <th>H₂</th>
+                                            <th>H₃</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for i in range(5) %}
+                                        <tr>
+                                            <td><strong>X{{ i+1 }}</strong></td>
+                                            {% for j in range(3) %}
+                                            <td>{{ weights.hidden[i][j] }}</td>
+                                            {% endfor %}
+                                        </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="col-md-6">
+                                <h6>
+                                    {% if session.get('language') == 'id' %}
+                                    Bias Hidden Layer:
+                                    {% else %}
+                                    Hidden Layer Bias:
+                                    {% endif %}
+                                </h6>
+                                <div class="bg-light p-2 rounded mb-3">
+                                    <code>b₁ = [{{ weights.hidden_bias[0] }}, {{ weights.hidden_bias[1] }}, {{ weights.hidden_bias[2] }}]</code>
+                                </div>
+                                
+                                <h6>
+                                    {% if session.get('language') == 'id' %}
+                                    Perhitungan Step-by-Step:
+                                    {% else %}
+                                    Step-by-Step Calculation:
+                                    {% endif %}
+                                </h6>
+                                {% for i in range(3) %}
+                                <div class="mb-2">
+                                    <small>
+                                        {% if session.get('language') == 'id' %}
+                                        Neuron H{{ i+1 }}:
+                                        {% else %}
+                                        Neuron H{{ i+1 }}:
+                                        {% endif %}
+                                    </small><br>
+                                    <code class="small">
+                                        net{{ i+1 }} = {% for j in range(5) %}{{ features.values[j] }}×{{ weights.hidden[j][i] }}{% if not loop.last %} + {% endif %}{% endfor %} + {{ weights.hidden_bias[i] }} = {{ calculations.hidden_net[i] }}
+                                    </code><br>
+                                    <code class="small">
+                                        H{{ i+1 }} = sigmoid({{ calculations.hidden_net[i] }}) = {{ calculations.hidden_output[i] }}
+                                    </code>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Output Layer Calculation -->
+                <div class="card mb-4">
+                    <div class="card-header bg-success text-white">
+                        <h4 class="mb-0">
+                            {% if session.get('language') == 'id' %}
+                            3. Perhitungan Output Layer
+                            {% else %}
+                            3. Output Layer Calculation
+                            {% endif %}
+                        </h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h6>
+                                    {% if session.get('language') == 'id' %}
+                                    Weight Matrix (W₂):
+                                    {% else %}
+                                    Weight Matrix (W₂):
+                                    {% endif %}
+                                </h6>
+                                <table class="table table-sm table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th></th>
+                                            <th>O₁</th>
+                                            <th>O₂</th>
+                                            <th>O₃</th>
+                                            <th>O₄</th>
+                                            <th>O₅</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for i in range(3) %}
+                                        <tr>
+                                            <td><strong>H{{ i+1 }}</strong></td>
+                                            {% for j in range(5) %}
+                                            <td>{{ weights.output[i][j] }}</td>
+                                            {% endfor %}
+                                        </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="col-md-6">
+                                <h6>
+                                    {% if session.get('language') == 'id' %}
+                                    Perhitungan Softmax:
+                                    {% else %}
+                                    Softmax Calculation:
+                                    {% endif %}
+                                </h6>
+                                {% for i in range(5) %}
+                                <div class="mb-2">
+                                    <small>
+                                        {% if session.get('language') == 'id' %}
+                                        Output {{ i+1 }} ({{ condition_names[i] }}):
+                                        {% else %}
+                                        Output {{ i+1 }} ({{ condition_names[i] }}):
+                                        {% endif %}
+                                    </small><br>
+                                    <code class="small">
+                                        net{{ i+1 }} = {% for j in range(3) %}{{ calculations.hidden_output[j] }}×{{ weights.output[j][i] }}{% if not loop.last %} + {% endif %}{% endfor %} + {{ weights.output_bias[i] }} = {{ calculations.output_net[i] }}
+                                    </code><br>
+                                    <code class="small">
+                                        P{{ i+1 }} = {{ calculations.probabilities[i] }}
+                                    </code>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Backpropagation Process -->
+                <div class="card mb-4">
+                    <div class="card-header bg-warning text-dark">
+                        <h4 class="mb-0">
+                            {% if session.get('language') == 'id' %}
+                            4. Proses Backpropagation
+                            {% else %}
+                            4. Backpropagation Process
+                            {% endif %}
+                        </h4>
+                    </div>
+                    <div class="card-body">
+                        <p>
+                            {% if session.get('language') == 'id' %}
+                            Proses pembelajaran menggunakan backpropagation untuk mengoptimalkan weights:
+                            {% else %}
+                            Learning process using backpropagation to optimize weights:
+                            {% endif %}
+                        </p>
+                        
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h6>
+                                    {% if session.get('language') == 'id' %}
+                                    1. Perhitungan Error Output:
+                                    {% else %}
+                                    1. Output Error Calculation:
+                                    {% endif %}
+                                </h6>
+                                <div class="bg-light p-3 rounded mb-3">
+                                    <code>
+                                        {% if session.get('language') == 'id' %}
+                                        Error = Target - Actual<br>
+                                        {% else %}
+                                        Error = Target - Actual<br>
+                                        {% endif %}
+                                        E = [{{ backprop.target_vector|join(', ') }}] - [{{ calculations.probabilities|join(', ') }}]<br>
+                                        E = [{{ backprop.output_error|join(', ') }}]
+                                    </code>
+                                </div>
+                                
+                                <h6>
+                                    {% if session.get('language') == 'id' %}
+                                    2. Gradient Output Layer:
+                                    {% else %}
+                                    2. Output Layer Gradient:
+                                    {% endif %}
+                                </h6>
+                                <div class="bg-light p-3 rounded">
+                                    {% for i in range(5) %}
+                                    <code class="small">
+                                        δ₂{{ i+1 }} = {{ backprop.output_error[i] }} × {{ calculations.probabilities[i] }} × (1 - {{ calculations.probabilities[i] }}) = {{ backprop.output_gradients[i] }}
+                                    </code><br>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <h6>
+                                    {% if session.get('language') == 'id' %}
+                                    3. Gradient Hidden Layer:
+                                    {% else %}
+                                    3. Hidden Layer Gradient:
+                                    {% endif %}
+                                </h6>
+                                <div class="bg-light p-3 rounded mb-3">
+                                    {% for i in range(3) %}
+                                    <code class="small">
+                                        δ₁{{ i+1 }} = Σ(δ₂ × W₂) × H{{ i+1 }} × (1 - H{{ i+1 }}) = {{ backprop.hidden_gradients[i] }}
+                                    </code><br>
+                                    {% endfor %}
+                                </div>
+                                
+                                <h6>
+                                    {% if session.get('language') == 'id' %}
+                                    4. Update Weights:
+                                    {% else %}
+                                    4. Weight Update:
+                                    {% endif %}
+                                </h6>
+                                <div class="bg-light p-3 rounded">
+                                    <code class="small">
+                                        {% if session.get('language') == 'id' %}
+                                        Learning Rate (α) = {{ backprop.learning_rate }}<br>
+                                        ΔW = α × δ × input<br>
+                                        W_new = W_old + ΔW
+                                        {% else %}
+                                        Learning Rate (α) = {{ backprop.learning_rate }}<br>
+                                        ΔW = α × δ × input<br>
+                                        W_new = W_old + ΔW
+                                        {% endif %}
+                                    </code>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Performance Metrics -->
+                <div class="card mb-4">
+                    <div class="card-header bg-danger text-white">
+                        <h4 class="mb-0">
+                            {% if session.get('language') == 'id' %}
+                            5. Metrik Performa Model
+                            {% else %}
+                            5. Model Performance Metrics
+                            {% endif %}
+                        </h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h6>
+                                    {% if session.get('language') == 'id' %}
+                                    Confusion Matrix:
+                                    {% else %}
+                                    Confusion Matrix:
+                                    {% endif %}
+                                </h6>
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th rowspan="2" class="align-middle">
+                                                {% if session.get('language') == 'id' %}
+                                                Aktual
+                                                {% else %}
+                                                Actual
+                                                {% endif %}
+                                            </th>
+                                            <th colspan="5" class="text-center">
+                                                {% if session.get('language') == 'id' %}
+                                                Prediksi
+                                                {% else %}
+                                                Predicted
+                                                {% endif %}
+                                            </th>
+                                        </tr>
+                                        <tr>
+                                            <th class="text-center small">C1</th>
+                                            <th class="text-center small">C2</th>
+                                            <th class="text-center small">C3</th>
+                                            <th class="text-center small">C4</th>
+                                            <th class="text-center small">C5</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for i in range(5) %}
+                                        <tr>
+                                            <td><strong>C{{ i+1 }}</strong></td>
+                                            {% for j in range(5) %}
+                                            <td class="text-center">{{ metrics.confusion_matrix[i][j] }}</td>
+                                            {% endfor %}
+                                        </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                                
+                                <h6>
+                                    {% if session.get('language') == 'id' %}
+                                    Perhitungan TP, TN, FP, FN untuk setiap kelas:
+                                    {% else %}
+                                    TP, TN, FP, FN calculation for each class:
+                                    {% endif %}
+                                </h6>
+                                <table class="table table-sm">
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                {% if session.get('language') == 'id' %}
+                                                Kelas
+                                                {% else %}
+                                                Class
+                                                {% endif %}
+                                            </th>
+                                            <th>TP</th>
+                                            <th>TN</th>
+                                            <th>FP</th>
+                                            <th>FN</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for i in range(5) %}
+                                        <tr>
+                                            <td>C{{ i+1 }}</td>
+                                            <td>{{ metrics.tp[i] }}</td>
+                                            <td>{{ metrics.tn[i] }}</td>
+                                            <td>{{ metrics.fp[i] }}</td>
+                                            <td>{{ metrics.fn[i] }}</td>
+                                        </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="col-md-6">
+                                <h6>
+                                    {% if session.get('language') == 'id' %}
+                                    Metrik Evaluasi:
+                                    {% else %}
+                                    Evaluation Metrics:
+                                    {% endif %}
+                                </h6>
+                                
+                                <div class="row">
+                                    <div class="col-6">
+                                        <div class="card bg-info text-white mb-3">
+                                            <div class="card-body text-center">
+                                                <h5>{{ metrics.accuracy }}%</h5>
+                                                <small>
+                                                    {% if session.get('language') == 'id' %}
+                                                    Akurasi
+                                                    {% else %}
+                                                    Accuracy
+                                                    {% endif %}
+                                                </small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="card bg-success text-white mb-3">
+                                            <div class="card-body text-center">
+                                                <h5>{{ metrics.precision }}%</h5>
+                                                <small>
+                                                    {% if session.get('language') == 'id' %}
+                                                    Presisi
+                                                    {% else %}
+                                                    Precision
+                                                    {% endif %}
+                                                </small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="card bg-warning text-dark mb-3">
+                                            <div class="card-body text-center">
+                                                <h5>{{ metrics.recall }}%</h5>
+                                                <small>Recall</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="card bg-danger text-white mb-3">
+                                            <div class="card-body text-center">
+                                                <h5>{{ metrics.f1_score }}%</h5>
+                                                <small>F1 Score</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <h6>
+                                    {% if session.get('language') == 'id' %}
+                                    Rumus Perhitungan:
+                                    {% else %}
+                                    Calculation Formulas:
+                                    {% endif %}
+                                </h6>
+                                <div class="bg-light p-3 rounded">
+                                    <code class="small">
+                                        Accuracy = (TP + TN) / (TP + TN + FP + FN)<br>
+                                        Precision = TP / (TP + FP)<br>
+                                        Recall = TP / (TP + FN)<br>
+                                        F1 Score = 2 × (Precision × Recall) / (Precision + Recall)
+                                    </code>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Final Prediction -->
+                <div class="card mb-4">
+                    <div class="card-header bg-dark text-white">
+                        <h4 class="mb-0">
+                            {% if session.get('language') == 'id' %}
+                            6. Hasil Prediksi Final
+                            {% else %}
+                            6. Final Prediction Result
+                            {% endif %}
+                        </h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h6>
+                                    {% if session.get('language') == 'id' %}
+                                    Probabilitas untuk setiap kondisi:
+                                    {% else %}
+                                    Probability for each condition:
+                                    {% endif %}
+                                </h6>
+                                <div class="mb-3">
+                                    {% for i in range(5) %}
+                                    <div class="d-flex justify-content-between mb-2">
+                                        <span class="small">{{ condition_names[i] }}</span>
+                                        <span class="badge {% if i == result.predicted_class %}bg-primary{% else %}bg-secondary{% endif %}">
+                                            {{ calculations.probabilities[i] }}%
+                                        </span>
+                                    </div>
+                                    <div class="progress mb-2" style="height: 10px;">
+                                        <div class="progress-bar {% if i == result.predicted_class %}bg-primary{% else %}bg-secondary{% endif %}" 
+                                             role="progressbar" 
+                                             style="width: {{ calculations.probabilities[i] }}%" 
+                                             aria-valuenow="{{ calculations.probabilities[i] }}" 
+                                             aria-valuemin="0" 
+                                             aria-valuemax="100">
+                                        </div>
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="text-center">
+                                    <h6>
+                                        {% if session.get('language') == 'id' %}
+                                        Prediksi Terpilih:
+                                        {% else %}
+                                        Selected Prediction:
+                                        {% endif %}
+                                    </h6>
+                                    <div class="alert alert-primary">
+                                        <h4>{{ condition_names[result.predicted_class] }}</h4>
+                                        <p class="mb-0">
+                                            {% if session.get('language') == 'id' %}
+                                            Confidence: {{ result.confidence }}%
+                                            {% else %}
+                                            Confidence: {{ result.confidence }}%
+                                            {% endif %}
+                                        </p>
+                                    </div>
+                                    
+                                    <small class="text-muted">
+                                        {% if session.get('language') == 'id' %}
+                                        Dipilih berdasarkan probabilitas tertinggi menggunakan argmax function
+                                        {% else %}
+                                        Selected based on highest probability using argmax function
+                                        {% endif %}
+                                    </small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center">
+                    <a href="{{ url_for('index') }}" class="btn btn-outline-secondary me-3">
+                        <i class="fas fa-arrow-left me-2"></i>
+                        {% if session.get('language') == 'id' %}
+                        Kembali ke Diagnosis
+                        {% else %}
+                        Back to Diagnosis
+                        {% endif %}
+                    </a>
+                    <a href="{{ url_for('education') }}" class="btn btn-primary">
+                        <i class="fas fa-book-medical me-2"></i>
+                        {% if session.get('language') == 'id' %}
+                        Pelajari Kondisi Gigi
+                        {% else %}
+                        Learn About Conditions
+                        {% endif %}
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

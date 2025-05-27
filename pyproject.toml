@@ -14,4 +14,5 @@ dependencies = [
     "tensorflow>=2.14.0",
     "pillow>=11.2.1",
     "numpy>=2.2.5",
+    "werkzeug>=3.1.3",
 ]
